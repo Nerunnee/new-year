@@ -5,33 +5,81 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #2d5016;
+  font-family: "Inter", Arial, sans-serif;
+  background: #006f57;
   color: white;
+  overflow-x: hidden;
 }
 
-.header {
+/* Christmas Tree Section */
+.tree-section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #006f57;
+  perspective: 1000px;
+  padding: 40px 20px;
+}
+
+.tree-container {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  transform-style: preserve-3d;
+  animation: rotateTree 20s linear infinite;
+  margin-bottom: 50px;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(
+    circle at center,
+    var(--color1) 0%,
+    var(--color2) 100%
+  );
+  box-shadow: 0 0 8px var(--color1), 0 0 15px var(--color2);
+  animation: move 12s var(--delay) linear infinite;
+}
+
+.tree__star {
+  position: absolute;
+  top: -37px;
+  left: 152px;
+  transform: translateX(-50%);
+  font-size: 30px;
+  text-shadow: 0 0 20px gold, 0 0 30px orange;
+  z-index: 100;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+.greeting {
+  font-family: "Rubik Gemstones", cursive;
+  font-size: 3.5rem;
+  color: #fff;
   text-align: center;
-  padding: 60px 20px;
-  background: #165a2f;
+  z-index: 200;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de,
+    0 0 40px #ff00de;
+  animation: textPulse 3s ease-in-out infinite alternate;
 }
 
-.header h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.header p {
+.subheading {
+  font-family: "Inter", sans-serif;
   font-size: 1.3rem;
+  color: #fff;
+  text-align: center;
+  z-index: 200;
   margin-bottom: 30px;
+  opacity: 0.95;
 }
 
-.header button {
+.continue-btn {
   padding: 15px 40px;
   background: #c41e3a;
   color: white;
@@ -39,12 +87,31 @@ body {
   border-radius: 25px;
   font-size: 1.1rem;
   cursor: pointer;
+  font-weight: bold;
+  z-index: 200;
+  transition: all 0.3s ease;
 }
 
-.header button:hover {
+.continue-btn:hover {
   background: #8b0000;
+  transform: scale(1.05);
 }
 
+.name-label {
+  position: absolute;
+  white-space: nowrap;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #ff00de;
+  opacity: 0;
+  transform-style: preserve-3d;
+  animation: move 12s linear infinite, fadeInName 2s forwards;
+  z-index: 50;
+}
+
+/* Learning Journey Section */
 .section {
   min-height: 100vh;
   display: flex;
@@ -116,6 +183,7 @@ body {
   cursor: not-allowed;
 }
 
+/* Slide 1 - HTML Basics */
 .slide-1 .demo-box {
   background: white;
   color: black;
@@ -132,46 +200,39 @@ body {
   font-size: 2em;
   margin: 0.67em 0;
 }
-
 .slide-1 .demo-box h2 {
   font-size: 1.5em;
   margin: 0.75em 0;
 }
-
 .slide-1 .demo-box h3 {
   font-size: 1.17em;
   margin: 0.83em 0;
 }
-
 .slide-1 .demo-box h4 {
   font-size: 1em;
   margin: 1.12em 0;
 }
-
 .slide-1 .demo-box h5 {
   font-size: 0.83em;
   margin: 1.5em 0;
 }
-
 .slide-1 .demo-box h6 {
   font-size: 0.75em;
   margin: 1.67em 0;
 }
-
 .slide-1 .demo-box p {
   margin: 1em 0;
 }
-
 .slide-1 .demo-box a {
   color: blue;
   text-decoration: underline;
 }
-
 .slide-1 .demo-box ul {
   margin: 1em 0;
   padding-left: 40px;
 }
 
+/* Slide 2 - CSS Styling */
 .slide-2 .demo-box {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -238,6 +299,7 @@ body {
   font-size: 1.1rem;
 }
 
+/* Slide 3 - Effects & Shadows */
 .slide-3 .demo-box {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   color: white;
@@ -319,6 +381,7 @@ body {
   transform: translateY(0);
 }
 
+/* Slide 4 - JavaScript */
 .slide-4 .demo-box {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: white;
@@ -386,56 +449,6 @@ body {
   font-size: 1.3rem;
   font-weight: bold;
 }
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 40px 30px;
-  border-radius: 15px;
-  width: 300px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.card li {
-  padding: 10px 0;
-  padding-left: 30px;
-  position: relative;
-}
-
-.card li:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: white;
-  font-weight: bold;
-}
-
-.card-orange {
-  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-}
-.card-green {
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-}
-.card-purple {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
 
 .footer {
   min-height: 100vh;
@@ -456,4 +469,75 @@ body {
 .footer p {
   font-size: 1.2rem;
   margin-top: 20px;
+}
+
+/* Animations */
+@keyframes move {
+  0% {
+    transform: rotateY(0deg) translateZ(var(--z)) translateX(var(--x))
+      translateY(0) rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg) translateZ(var(--z)) translateX(var(--x))
+      translateY(0) rotateY(-360deg);
+  }
+}
+
+@keyframes rotateTree {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+@keyframes textPulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+    text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+    text-shadow: 0 0 20px #ff00de, 0 0 40px #ff00de, 0 0 60px #ff00de;
+  }
+}
+
+@keyframes fadeInName {
+  0% {
+    opacity: 0;
+    scale: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .greeting {
+    font-size: 2rem;
+  }
+  .slide-2 .demo-box h1 {
+    font-size: 2.5rem;
+  }
+  .counter-display {
+    font-size: 5rem;
+  }
 }
