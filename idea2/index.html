@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Learning Journey 2024</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>🎄 Happy New Year to class 3G 🎅</h1>
+      <p>Let's see what we learned in last 2 months</p>
+      <button onclick="scrollToSkills()">See What We Learned 🎁</button>
+    </div>
+    <div class="section" id="skills">
+      <div class="scroll-container">
+        <button class="nav-btn prev" onclick="prevSlide()" id="prevBtn">
+          ←
+        </button>
+        <button class="nav-btn next" onclick="nextSlide()" id="nextBtn">
+          →
+        </button>
+
+        <div class="content-wrapper">
+          <div class="slides" id="slides">
+            <div class="slide slide-1">
+              <div class="demo-box">
+                <h1>
+                  Хамгийн анх бид HTML дээр paragraph, heading бичиж, link тавьж
+                  мөн unordered болон ordered list хийж сурсан.
+                </h1>
+                <h1>This is Heading 1</h1>
+                <h2>This is Heading 2</h2>
+                <h3>This is Heading 3</h3>
+                <h4>This is Heading 4</h4>
+                <h5>This is Heading 5</h5>
+                <h6>This is Heading 6</h6>
+                <p>
+                  This is a paragraph with <a href="#">a link</a> inside it.
+                </p>
+                <p>Another paragraph with <a href="#">another link</a>.</p>
+                <ul>
+                  <li>List item 1</li>
+                  <li>List item 2</li>
+                  <li>List item 3</li>
+                </ul>
+                <p><a href="#">Click here to learn more</a></p>
+              </div>
+            </div>
+            <div class="slide slide-2">
+              <div class="demo-box">
+                <h2>
+                  Дараа нь бид CSS ашиглан вэбсайтаа үнэхээр царайлаг болгож
+                  сурсан.
+                </h2>
+                <h1>Welcome to Our Amazing Website</h1>
+                <p>Discover the future of web development</p>
+                <button class="cta-button">Get Started Now</button>
+                <div class="features">
+                  <div class="feature-box">
+                    <h3>🚀 Fast</h3>
+                    <p>Lightning quick performance</p>
+                  </div>
+                  <div class="feature-box">
+                    <h3>💎 Beautiful</h3>
+                    <p>Stunning modern design</p>
+                  </div>
+                  <div class="feature-box">
+                    <h3>🔒 Secure</h3>
+                    <p>Protected and safe</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide slide-3">
+              <div class="demo-box">
+                <h3>
+                  Мөн цаашлаад бид effect-үүд болон shadow-ууд ашиглаж,
+                  вэбсайтаа smooth мэдрэмж төрүүлдэг болгож сурсан.
+                </h3>
+                <h2>Hover Over These Cards!</h2>
+                <div class="card-container">
+                  <div class="hover-card">
+                    <h3>Card 1</h3>
+                    <p>Hover me!</p>
+                  </div>
+                  <div class="hover-card">
+                    <h3>Card 2</h3>
+                    <p>Click me!</p>
+                  </div>
+                  <div class="hover-card">
+                    <h3>Card 3</h3>
+                    <p>Try me!</p>
+                  </div>
+                </div>
+                <button class="shadow-button">Click Me</button>
+                <button class="shadow-button">Or Me</button>
+              </div>
+            </div>
+            <div class="slide slide-4">
+              <div class="demo-box">
+                <h3>
+                  Эцэст нь бид JavaScript ашиглан вэбсайтаа interactive болгож
+                  сурсан. Мөн олон сонирхолтой тоглоом хийсэн.
+                </h3>
+                <h2>Interactive Counter</h2>
+                <div class="counter-display" id="counter">0</div>
+                <div class="button-group">
+                  <button class="js-button" onclick="decrementCounter()">
+                    - Decrease
+                  </button>
+                  <button class="js-button" onclick="resetCounter()">
+                    Reset
+                  </button>
+                  <button class="js-button" onclick="incrementCounter()">
+                    + Increase
+                  </button>
+                </div>
+                <div class="color-box" id="colorBox">
+                  <p>Click the button below to change my color!</p>
+                </div>
+                <button class="js-button" onclick="changeColor()">
+                  Change Color
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <h2>🎄 Happy Holidays from Our Class! 🎅</h2>
+      <p>Thank you for a great semester of learning!</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
