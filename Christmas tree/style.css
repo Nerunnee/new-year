@@ -69,6 +69,20 @@ body {
   animation: textPulse 3s ease-in-out infinite alternate;
 }
 
+.name-label {
+  position: absolute;
+  white-space: nowrap;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #ff00de;
+  opacity: 0;
+  transform-style: preserve-3d;
+  animation: move 12s linear infinite, fadeInName 2s forwards;
+  z-index: 50;
+}
+
 @keyframes move {
   0% {
     transform: rotateY(0deg) translateZ(var(--z)) translateX(var(--x))
@@ -112,5 +126,18 @@ body {
     opacity: 1;
     transform: scale(1.05);
     text-shadow: 0 0 20px #ff00de, 0 0 40px #ff00de, 0 0 60px #ff00de;
+  }
+}
+
+@keyframes fadeInName {
+  0% {
+    opacity: 0;
+    scale: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+    filter: blur(0);
   }
 }

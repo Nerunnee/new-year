@@ -4,27 +4,27 @@ const numberOftreeLights = 200;
 const names = [
   "Баатарван",
   "Наранцогт",
-  "Дэнни",
-  "Оргил",
   "Алтанцоож",
-  "Норовсүрэн",
-  "Цолмонгэрэл",
-  "Ганхөлөг",
-  "Одбаяр",
-  "Ариунзул",
-  "Чингүүн",
-  "Тэнгэр-Эрдэнэ",
+  "Алтанцэцэг",
   "Амаржаргал",
-  "Сугар-Очир",
-  "Мөнхдалай",
-  "Чинбаяр",
-  "Оюунжаргал",
+  "Ариунзул",
+  "Батбилэг",
+  "Ганхөлөг",
+  "Дэнни",
   "Лхагвадорж",
+  "Мөнхдалай",
+  "Мөнхжин",
+  "Норовсүрэн",
+  "Одбаяр",
+  "Оргил",
+  "Оюунжаргал",
+  "Сугар-Очир",
   "Сүх-Очир",
   "Төгөлдөр",
-  "Алтанцэцэг",
-  "Батбилэг",
-  "Мөнхжин",
+  "Тэнгэр-Эрдэнэ",
+  "Цолмонгэрэл",
+  "Чинбаяр",
+  "Чингүүн",
 ];
 
 const randomGradientColors = () => {
@@ -69,24 +69,16 @@ for (let i = 0; i < numberOftreeLights; i++) {
 
 names.forEach((name, index) => {
   const nameElement = document.createElement("div");
-  nameElement.className = "star";
+  nameElement.className = "name-label";
   nameElement.innerText = name;
 
-  nameElement.style.fontSize = "16px";
-  nameElement.style.fontWeight = "900";
-  nameElement.style.color = "white";
-  nameElement.style.width = "auto";
-  nameElement.style.height = "auto";
-  nameElement.style.background = "none";
-  nameElement.style.boxShadow = "none";
-  nameElement.style.whiteSpace = "nowrap";
-  nameElement.style.textShadow = "0 0 0.8px black, 0 0 20px orange";
-
-  // Модон дээр байрлуулах тооцоолол
   const progress = index / names.length;
-  const yPos = progress * 380 + 20;
-  const radius = progress * 160;
-  const angle = index * 1.2;
+
+  const yPos = 130 + progress * 270;
+
+  const radius = 40 + progress * 70;
+
+  const angle = index * 0.5;
 
   const x = Math.cos(angle) * radius;
   const z = Math.sin(angle) * radius;
@@ -95,8 +87,9 @@ names.forEach((name, index) => {
   nameElement.style.setProperty("--z", `${z}px`);
   nameElement.style.top = `${yPos}px`;
   nameElement.style.left = `50%`;
-  nameElement.style.setProperty("--delay", `${index * -0.4}s`);
-  nameElement.style.animationDuration = `12s`;
+
+  const appearanceDelay = 2.5 + index * 0.3;
+  nameElement.style.animationDelay = `0s, ${appearanceDelay}s`;
 
   tree.appendChild(nameElement);
 });
