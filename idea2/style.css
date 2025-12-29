@@ -452,17 +452,231 @@ body {
   align-items: center;
   text-align: center;
   padding: 80px 20px;
-  background: #0f3d1f;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-.footer h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(97, 218, 251, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(142, 84, 233, 0.1) 0%,
+      transparent 50%
+    );
+  animation: bgPulse 8s ease-in-out infinite;
 }
 
-.footer p {
+.rocket-container {
+  position: relative;
+  margin-bottom: 40px;
+  animation: float 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.rocket {
+  font-size: 5rem;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+  animation: rocketShake 0.5s ease-in-out infinite;
+}
+
+.flame {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 40px;
+  background: linear-gradient(to bottom, #ff6b00, #ff0000, transparent);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  filter: blur(5px);
+  animation: flameFlicker 0.1s ease-in-out infinite;
+}
+
+.footer-title {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  background: linear-gradient(45deg, #61dafb, #8e54e9, #61dafb);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+  font-weight: bold;
+  z-index: 1;
+  text-shadow: 0 0 40px rgba(97, 218, 251, 0.5);
+}
+
+.react-logo {
+  font-size: 6rem;
+  margin: 20px 0;
+  animation: spin 10s linear infinite;
+  filter: drop-shadow(0 0 30px rgba(97, 218, 251, 0.8));
+  z-index: 1;
+}
+
+.footer-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+  color: #b8c5d6;
+  z-index: 1;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+.tech-badges {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1;
+}
+
+.badge {
+  padding: 12px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(97, 218, 251, 0.3);
+  border-radius: 25px;
   font-size: 1.2rem;
-  margin-top: 20px;
+  font-weight: bold;
+  color: #61dafb;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  animation: badgePop 0.6s ease-out backwards;
+}
+
+.badge:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.badge:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.badge:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.badge:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.badge:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 30px rgba(97, 218, 251, 0.4);
+  border-color: #61dafb;
+}
+
+.badge.next {
+  background: linear-gradient(135deg, #61dafb 0%, #8e54e9 100%);
+  border-color: #61dafb;
+  color: white;
+  animation: badgePulse 2s ease-in-out infinite,
+    badgePop 0.6s ease-out backwards;
+  animation-delay: 0s, 0.4s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rocketShake {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes flameFlicker {
+  0%,
+  100% {
+    transform: translateX(-50%) scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scaleY(0.8);
+    opacity: 0.8;
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes badgePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(97, 218, 251, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 10px rgba(97, 218, 251, 0);
+  }
+}
+
+@keyframes bgPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes move {
@@ -532,5 +746,11 @@ body {
   }
   .counter-display {
     font-size: 5rem;
+  }
+  .footer-title {
+    font-size: 2.5rem;
+  }
+  .react-logo {
+    font-size: 4rem;
   }
 }
