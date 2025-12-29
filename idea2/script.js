@@ -1,6 +1,11 @@
-// Christmas Tree Setup
 const tree = document.getElementById("tree");
+const scrollIntoView = document.getElementById("skills");
 const numberOfTreeLights = 200;
+const slides = document.getElementById("slides");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const theCounter = document.getElementById("counter");
+const colorBox = document.getElementById("colorBox");
 
 const names = [
   "Баатарван",
@@ -39,7 +44,6 @@ const randomGradientColors = () => {
   };
 };
 
-// Create tree lights
 for (let i = 0; i < numberOfTreeLights; i++) {
   const star = document.createElement("div");
   star.className = "star";
@@ -67,7 +71,6 @@ for (let i = 0; i < numberOfTreeLights; i++) {
   tree.appendChild(star);
 }
 
-// Add names to tree
 names.forEach((name, index) => {
   const nameElement = document.createElement("div");
   nameElement.className = "name-label";
@@ -90,21 +93,15 @@ names.forEach((name, index) => {
   tree.appendChild(nameElement);
 });
 
-// Scroll function
 const scrollToSkills = () => {
-  document.getElementById("skills").scrollIntoView({ behavior: "smooth" });
+  scrollIntoView.scrollIntoView({ behavior: "smooth" });
 };
 
-// Slide navigation
 let currentSlide = 0;
 const totalSlides = 4;
 let counter = 0;
 
 const updateSlide = () => {
-  const slides = document.getElementById("slides");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-
   slides.style.transform = `translateX(-${currentSlide * 100}%)`;
   prevBtn.disabled = currentSlide === 0;
   nextBtn.disabled = currentSlide === totalSlides - 1;
@@ -124,23 +121,21 @@ const prevSlide = () => {
   }
 };
 
-// Interactive counter
 const incrementCounter = () => {
   counter++;
-  document.getElementById("counter").textContent = counter;
+  theCounter.textContent = counter;
 };
 
 const decrementCounter = () => {
   counter--;
-  document.getElementById("counter").textContent = counter;
+  theCounter.textContent = counter;
 };
 
 const resetCounter = () => {
   counter = 0;
-  document.getElementById("counter").textContent = counter;
+  theCounter.textContent = counter;
 };
 
-// Color changer
 const changeColor = () => {
   const colors = [
     "#ff6b6b",
@@ -151,7 +146,7 @@ const changeColor = () => {
     "#ffaaa5",
   ];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  document.getElementById("colorBox").style.background = randomColor;
+  colorBox.style.background = randomColor;
 };
 
 updateSlide();

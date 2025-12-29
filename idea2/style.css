@@ -11,7 +11,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Christmas Tree Section */
 .tree-section {
   min-height: 100vh;
   display: flex;
@@ -63,7 +62,7 @@ body {
   color: #fff;
   text-align: center;
   z-index: 200;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de,
     0 0 40px #ff00de;
   animation: textPulse 3s ease-in-out infinite alternate;
@@ -75,7 +74,7 @@ body {
   color: #fff;
   text-align: center;
   z-index: 200;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   opacity: 0.95;
 }
 
@@ -111,7 +110,6 @@ body {
   z-index: 50;
 }
 
-/* Learning Journey Section */
 .section {
   min-height: 100vh;
   display: flex;
@@ -183,7 +181,6 @@ body {
   cursor: not-allowed;
 }
 
-/* Slide 1 - HTML Basics */
 .slide-1 .demo-box {
   background: white;
   color: black;
@@ -232,7 +229,6 @@ body {
   padding-left: 40px;
 }
 
-/* Slide 2 - CSS Styling */
 .slide-2 .demo-box {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -299,7 +295,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* Slide 3 - Effects & Shadows */
 .slide-3 .demo-box {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   color: white;
@@ -381,7 +376,6 @@ body {
   transform: translateY(0);
 }
 
-/* Slide 4 - JavaScript */
 .slide-4 .demo-box {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: white;
@@ -471,7 +465,6 @@ body {
   margin-top: 20px;
 }
 
-/* Animations */
 @keyframes move {
   0% {
     transform: rotateY(0deg) translateZ(var(--z)) translateX(var(--x))
