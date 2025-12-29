@@ -283,6 +283,7 @@ body {
   padding: 30px;
   border-radius: 15px;
   width: 200px;
+  height: 200px;
   backdrop-filter: blur(10px);
 }
 
@@ -293,6 +294,10 @@ body {
 
 .feature-box p {
   font-size: 1.1rem;
+}
+.feature-box1 {
+  padding: 0px 50px;
+  padding-top: 30px;
 }
 
 .slide-3 .demo-box {
